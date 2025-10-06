@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>文書データ化の仕上がりイメージサンプル</title>
+  <style>
+    :root{--accent:#0a74da;--bg:#f6f8fb;--card:#ffffff}
+    body{font-family:system-ui,-apple-system,"Hiragino Kaku Gothic ProN","Noto Sans JP",Roboto,"Helvetica Neue",Arial;margin:0;background:var(--bg);color:#111}
+    .container{max-width:980px;margin:32px auto;padding:24px}
+    header{display:flex;align-items:center;gap:16px}
+    h1{margin:0;font-size:1.6rem}
+    .hero{background:linear-gradient(90deg,rgba(10,116,218,0.06),transparent);border-radius:12px;padding:18px;margin-top:18px;display:flex;gap:20px;align-items:center}
+    .pdf-frame{flex:1;min-height:560px;border:1px solid #ddd;border-radius:8px;overflow:hidden;background:#fff}
+    iframe{width:100%;height:100%;border:0}
+    .meta{width:320px}
+    .btn{display:inline-block;padding:10px 14px;border-radius:8px;text-decoration:none;font-weight:600}
+    .btn-primary{background:var(--accent);color:#fff}
+    .btn-ghost{background:transparent;border:1px solid #d0d7de;color:#111}
+    .features{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:20px}
+    .card{background:var(--card);padding:14px;border-radius:10px;box-shadow:0 6px 18px rgba(16,24,40,0.04)}
+    footer{margin-top:28px;font-size:0.9rem;color:#444}
+    @media(max-width:880px){.hero{flex-direction:column}.meta{width:100%}.features{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='48' height='48'><rect rx='8' width='48' height='48' fill='%230a74da'/><text x='50%' y='55%' font-size='20' text-anchor='middle' fill='%23fff' font-family='sans-serif'>PDF</text></svg>" alt="logo" width="48" height="48">
+      <div>
+        <h1>文書データ化の仕上がりイメージサンプル</h1>
+        <div style="color:#555;margin-top:6px">GitHub Pages上でPDFの仕上がりを確認・ダウンロードできます。</div>
+      </div>
+    </header>
+
+    <div class="hero">
+      <div class="pdf-frame" role="region" aria-label="PDFプレビュー">
+        <!-- GitHub Pages上のPDFを参照する設定 -->
+        <iframe id="pdfViewer" src="https://yazu0207.github.io/Sample-PDF/sample.pdf#view=FitH" title="PDFプレビュー"></iframe>
+      </div>
+
+      <aside class="meta">
+        <div class="card">
+          <p style="margin:0;font-weight:700">ファイル情報</p>
+          <dl style="margin:10px 0 0 0">
+            <dt style="font-size:0.9rem;color:#666">公開URL</dt>
+            <dd style="margin:6px 0 10px 0"><a href="https://yazu0207.github.io/Sample-PDF/sample.pdf" target="_blank">sample.pdf</a></dd>
+            <dt style="font-size:0.9rem;color:#666">ホスティング</dt>
+            <dd style="margin:6px 0 10px 0">GitHub Pages</dd>
+          </dl>
+          <a class="btn btn-primary" id="downloadBtn" href="https://yazu0207.github.io/Sample-PDF/sample.pdf" download>PDFをダウンロード</a>
+          <a class="btn btn-ghost" href="#notes" style="margin-left:8px">詳細を見る</a>
+        </div>
+
+        <div class="card" style="margin-top:12px">
+          <p style="margin:0;font-weight:700">PDF差し替え方法（GitHub版）</p>
+          <ul style="margin:10px 0 0 18px;color:#444">
+            <li>リポジトリ <code>Sample-PDF</code> に新しいPDFをアップロード</li>
+            <li>ファイル名を <code>sample.pdf</code> に統一する（または下記スクリプト内URLを変更）</li>
+            <li>GitHub Pages が自動的に新PDFを公開</li>
+          </ul>
+        </div>
+      </aside>
+    </div>
+
+    <section class="features" id="notes">
+      <div class="card">
+        <h3 style="margin-top:0">このページの目的</h3>
+        <ul style="margin:8px 0 0 18px;color:#444">
+          <li>文書スキャン・データ化後のPDF仕上がりをGitHub上で確認</li>
+          <li>外部公開や社内共有のための軽量ランディングページ</li>
+          <li>ファイル更新時もURLが変わらない構成</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3 style="margin-top:0">おすすめ設定</h3>
+        <ol style="margin:8px 0 0 18px;color:#444;padding-left:16px">
+          <li>解像度：300dpi（OCR対応時）</li>
+          <li>形式：PDF（マルチページ）</li>
+          <li>カラーモード：原稿に応じて自動判別</li>
+        </ol>
+      </div>
+
+      <div class="card">
+        <h3 style="margin-top:0">表示チェックリスト</h3>
+        <ul style="margin:8px 0 0 18px;color:#444">
+          <li>PDFが正しく読み込まれるか（iframe）</li>
+          <li>リンク・ダウンロードが正しく動作するか</li>
+          <li>モバイルでもレイアウトが崩れないか</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3 style="margin-top:0">お問い合わせ</h3>
+        <p style="margin:8px 0 0 0;color:#444">PDF更新・デザイン調整のご相談はこちらへ：<br><a href="mailto:example@example.com">example@example.com</a></p>
+      </div>
+    </section>
+
+    <footer>
+      <small>このページはGitHub Pagesでホストされています。PDFを差し替える場合はリポジトリのファイルを更新してください。</small>
+    </footer>
+  </div>
+</body>
+</html>

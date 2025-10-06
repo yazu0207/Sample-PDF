@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>文書データ化の仕上がりイメージサンプル</title>
+  <style>
+    :root{--accent:#0a74da;--bg:#f6f8fb;--card:#ffffff}
+    body{font-family:system-ui,-apple-system,"Hiragino Kaku Gothic ProN","Noto Sans JP",Roboto,"Helvetica Neue",Arial;margin:0;background:var(--bg);color:#111;min-height:100vh;display:flex;flex-direction:column}
+    .container{flex:1;max-width:900px;margin:0 auto;padding:24px;box-sizing:border-box}
+    header{display:flex;align-items:center;gap:16px;margin-top:24px}
+    h1{margin:0;font-size:1.6rem}
+    .hero{background:linear-gradient(90deg,rgba(10,116,218,0.06),transparent);border-radius:12px;padding:18px;margin-top:24px;display:flex;gap:24px;align-items:flex-start;flex-wrap:wrap}
+    .pdf-frame{flex:1;border:1px solid #ccc;border-radius:8px;overflow:hidden;background:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 6px 18px rgba(16,24,40,0.06);aspect-ratio:1/1.414;max-height:calc(100vh - 260px)}
+    iframe{width:100%;height:100%;border:0;transform-origin:center top;transform:scale(1);}
+    .meta{width:280px;flex-shrink:0;display:flex;flex-direction:column;gap:12px}
+    .btn{display:inline-block;padding:10px 14px;border-radius:8px;text-decoration:none;font-weight:600;text-align:center}
+    .btn-primary{background:var(--accent);color:#fff}
+    footer{margin-top:40px;font-size:0.9rem;color:#444;text-align:center;padding:16px 0}
+    @media(max-width:900px){.hero{flex-direction:column}.meta{width:100%}.pdf-frame{aspect-ratio:auto;height:80vh}}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='48' height='48'><rect rx='8' width='48' height='48' fill='%230a74da'/><text x='50%' y='55%' font-size='20' text-anchor='middle' fill='%23fff' font-family='sans-serif'>PDF</text></svg>" alt="logo" width="48" height="48">
+      <div>
+        <h1>文書データ化の仕上がりイメージサンプル</h1>
+        <div style="color:#555;margin-top:6px">データ化後のPDF機能を体験できます。</div>
+      </div>
+    </header>
+
+    <div class="hero">
+      <div class="pdf-frame" role="region" aria-label="PDFプレビュー">
+        <!-- PDFを1ページ分だけ整った比率で埋め込み -->
+        <iframe id="pdfViewer" src="https://yazu0207.github.io/Sample-PDF/sample.pdf#page=1&zoom=page-width&toolbar=0&navpanes=0&scrollbar=0" title="PDFプレビュー"></iframe>
+      </div>
+
+      <aside class="meta">
+        <div class="card" style="background:#fff;padding:16px;border-radius:10px;box-shadow:0 4px 12px rgba(0,0,0,0.05)">
+          <p style="margin:0;font-weight:700">ファイル情報</p>
+          <dl style="margin:10px 0 0 0">
+            <dt style="font-size:0.9rem;color:#666">公開URL</dt>
+            <dd style="margin:6px 0 10px 0"><a href="https://yazu0207.github.io/Sample-PDF/sample.pdf" target="_blank">sample.pdf</a></dd>
+            <dt style="font-size:0.9rem;color:#666">ホスティング</dt>
+            <dd style="margin:6px 0 10px 0">GitHub Pages</dd>
+          </dl>
+          <a class="btn btn-primary" id="downloadBtn" href="https://yazu0207.github.io/Sample-PDF/sample.pdf" download>PDFをダウンロード</a>
+        </div>
+      </aside>
+    </div>
+  </div>
+
+  <footer>
+    <small>このページはGitHub Pagesでホストされています。PDFを差し替える場合はリポジトリのファイルを更新してください。</small>
+  </footer>
+</body>
+</html>
